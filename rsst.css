@@ -1,0 +1,503 @@
+/* General Reset and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 100%; /* Ensure html element takes full height */
+}
+
+body {
+    cursor: url('https://i2.pngimg.me/thumb/f/720/m2K9A0d3G6Z5N4K9.jpg') 16 16, auto;
+    font-family: Arial, sans-serif;
+    color: black;
+    position: relative;
+    overflow-y: auto; /* Allow vertical scrolling */
+    min-height: 100vh; /* Ensure the body takes full height */
+    padding-top: 60px; /* Add padding to ensure content is not hidden behind the fixed header */
+    background: url('https://i.pinimg.com/736x/46/9d/61/469d61dacea4cbd608232e36d6e22bc7.jpg') no-repeat center center fixed; 
+    background-size: cover; /* Ensure the background covers the entire page */
+    background-attachment: fixed; /* Parallax effect to make the background stay in place */
+}
+
+/* Fixed Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed; /* Fix the navigation bar at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.logo h1 {
+    font-size: 28px;
+    color: peachpuff;
+    font-family: 'Papyrus', fantasy;
+    font-style: italic;
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: fadeInSlide 1s forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes fadeInSlide {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffcc00;
+    transform: scale(1.1);
+}
+
+/* About Us Section Styles */
+.about {
+    background-color: rgba(255, 255, 255, 0.4); /* White background with 80% opacity */
+    padding: 30px;
+    margin: 50px auto;
+    max-width: 1200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    position: relative;
+    z-index: 2; /* Ensure content appears above the background */
+}
+
+/* You can also adjust the opacity for the images or other elements inside */
+.about img {
+    opacity: 1; /* Keep the images fully opaque */
+}
+
+.about p {
+    margin-bottom: 20px;
+}
+
+.about h2, .about h3, .about h4 {
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.chef-gallery img {
+    margin-right: 90px; /* Adjust the space between the images */
+    margin-bottom: 30px; /* Add space between rows if needed */
+}
+
+.chef-gallery img:last-child {
+    margin-right: 0; /* Remove right margin from the last image */
+}
+.chef-img {
+    width: 35%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Footer Styles */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    background: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    color: white;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(100px);
+    animation: slideUpFooter 1s forwards;
+    animation-delay: 1.0s;
+}
+
+@keyframes slideUpFooter {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* About Us Page Specific Animations */
+.hero {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.hero h2, .hero p {
+    opacity: 0;
+    animation: fadeInText 2s forwards;
+}
+
+.hero h2 {
+    font-size: 50px;
+    margin-bottom: 10px;
+    font-family: 'Courier New', monospace;
+    font-style: italic;
+    animation-delay: 0.5s;
+}
+
+.hero p {
+    font-size: 35px;
+    margin-top: 10px;
+    font-family: 'Papyrus', fantasy;
+    font-style: italic;
+    animation-delay: 1s;
+}
+
+/* Keyframes for fade-in effect */
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Special Dishes */
+.special-dishes {
+    text-align: center;
+    margin: 40px 0;
+    opacity: 0;
+    animation: fadeInDishes 2s forwards;
+}
+
+@keyframes fadeInDishes {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.special-dishes h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: rosybrown;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    animation: moveUpDown 2s infinite ease-in-out, colorChange 4s infinite;
+}
+
+/* Keyframes for up and down movement */
+@keyframes moveUpDown {
+    0% {
+        transform: translateY(0);
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        transform: translateY(-20px);
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    100% {
+        transform: translateY(0);
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+}
+
+@keyframes colorChange {
+    0% {
+        color: rosybrown;
+    }
+    25% {
+        color: red;
+    }
+    50% {
+        color: deeppink;
+    }
+    75% {
+        color: brown;
+    }
+    100% {
+        color: rosybrown;
+    }
+}
+
+.dish {
+    display: inline-block;
+    margin: 20px;
+    text-align: center;
+}
+
+.dish img {
+    width: 200px;
+    height: 190px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dish img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+}
+
+.menu-items {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+
+.menu-item {
+    border: 1px solid #ccc;
+    background-color: rgba(255, 255, 255, 0.4); 
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.menu-item img {
+    width: 200px;
+    height: 190px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+}
+.menu-items h2 {
+    text-align: center;
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 30px;
+    font-family: 'Papyrus', fantasy;
+    font-style: italic;
+}
+
+
+.rating {
+    color: gold;
+    font-size: 24px;
+}
+
+.rating span {
+    color: gray;
+}
+
+.rating span.filled {
+    color: gold;
+}
+
+/* Contact Button */
+.contact-btn {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background-color: transparent;
+    color: black;
+    border: 2px solid black;
+    padding: 12px 40px;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    z-index: 1100;
+    text-decoration: none;
+}
+
+.contact-btn:hover {
+    background-color: rosybrown;
+    color: black;
+    border-color: black;
+}
+/* Specific styles for the Book Table Form */
+.book-table-form {
+    background-color: rgba(255, 255, 255, 0.6); /* Slightly opaque white background */
+    padding: 30px;
+    margin: 50px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    position: relative;
+    z-index: 2; /* Ensure the form content appears above the background */
+}
+
+.book-table-form h2 {
+    text-align: center;
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+    font-family: 'Papyrus', fantasy;
+    font-style: italic;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="time"] {
+    font-size: 16px;
+}
+
+.form-group select {
+    background-color: #fff;
+}
+
+.form-group input[type="text"] {
+    border-color: #ffcc00;
+}
+
+.form-group select option {
+    padding: 10px;
+}
+
+/* Button Styling */
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background-color: #5C4033;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #ffcc00;
+    color: black;
+}
+
+/* Make form responsive */
+@media (max-width: 768px) {
+    .book-table-form {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        font-size: 16px;
+    }
+
+    .form-group input,
+    .form-group select {
+        font-size: 14px;
+    }
+
+    .submit-btn {
+        font-size: 16px;
+        padding: 12px;
+    }
+}
+/* Textarea Styling */
+textarea {
+    width: 60%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical; /* Allows the user to resize vertically */
+    margin-top: 5px;
+}
+#confirmation {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Transparent black background */
+    color: white;
+    text-align: center;
+    padding-top: 100px;
+    z-index: 1000;
+}
+
+/* Modal content */
+#confirmation .modal-content {
+    background-color: #f1f1f1;
+    color: black;
+    padding: 20px;
+    margin: 0 auto;
+    width: 60%;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Show modal when the form is submitted (when target is #confirmation) */
+#confirmation:target {
+    display: block;
+}
+
+/* Close Button */
+.close-btn {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.close-btn:hover {
+    background-color: darkred;
+}
+
